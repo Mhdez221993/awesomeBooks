@@ -19,16 +19,19 @@ function display(books){
     for(let book of books){
         let title = document.createElement('p')
         let author = document.createElement('p')
+        let button = document.createElement('button')
         
         title.innerHTML = book.title
         author.innerHTML = book.author
+        button.innerHTML = 'remove'
+        button.className = 'remove'
 
         target.appendChild(title)
         target.appendChild(author)
+        target.appendChild(button)
 
     }
 
 }
-
 
 
