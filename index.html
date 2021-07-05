@@ -4,25 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
     <title>Awesome Books</title>
 </head>
 <body>
     <div class="conainer">
         <h1>Awesome books</h1>
-        <div>
-           <p>Lorem ipsum</p>
-           <p>Testoroo Testy</p> 
+        <div id="target">
            <button id="remove">Remove</button>
         </div>
-        <div>
-            <p>Second book</p>
-            <p>Testoroo Testy</p>
-            <button id="remove">Remove</button><br><br>  
-        </div>
-        <form id="form-title">
-            <input type="text" id="title" placeholder="Title"> <br><br>
-            <input type="text" id="author" placeholder="Author"> <br><br>
-            <button id="add">Add</button>
+        
+        <form id="form-title" onsubmit="addBook(event)">
+            <input type="text" id="title" placeholder="Title" name="title"> <br><br>
+            <input type="text" id="author" placeholder="Author" name="author"> <br><br>
+            <button type="submit" id="add">Add</button>
         </form>
     </div>
 </body>

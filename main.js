@@ -1,0 +1,34 @@
+let books = []
+
+function addBook(event){
+    event.preventDefault()
+    
+    let title = event.target['title'].value
+    let author = event.target['author'].value
+
+    let book = {title: title, author: author}
+    
+    books.push(book)
+
+    display(books)
+}
+
+function display(books){
+    let target = document.getElementById('target')
+
+    for(let book of books){
+        let title = document.createElement('p')
+        let author = document.createElement('p')
+        
+        title.innerHTML = book.title
+        author.innerHTML = book.author
+
+        target.appendChild(title)
+        target.appendChild(author)
+
+    }
+
+}
+
+
+
