@@ -1,0 +1,30 @@
+{
+  "name": "awesomebooks",
+  "version": "1.0.0",
+  "description": "In this project, We will build a basic website that allows users to add/remove books from a list. We will achieve that by using JavaScript objects and arrays.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mhdez221993/awesomeBooks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mhdez221993/awesomeBooks/issues"
+  },
+  "homepage": "https://github.com/Mhdez221993/awesomeBooks#readme",
+  "devDependencies": {
+    "babel-eslint": "10.1.x",
+    "eslint": "6.8.x",
+    "eslint-auto-fix": "^1.0.3",
+    "eslint-config-airbnb-base": "14.1.x",
+    "eslint-plugin-import": "2.20.x",
+    "stylelint": "13.3.x",
+    "stylelint-config-standard": "20.0.x",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "3.17.x"
+  }
+}
