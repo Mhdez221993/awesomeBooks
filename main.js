@@ -41,16 +41,13 @@ if (savedBooks) {
   showBooks();
 }
 
-function addBook(event) {
+document.getElementById('form-title').addEventListener('submit', (event) => {
   event.preventDefault();
-
   const title = document.getElementById('title');
   const author = document.getElementById('author');
-
   books.push({ title: title.value, author: author.value, id: counter += 1 });
-
   showBooks();
   localStorage.setItem('savedBooks', JSON.stringify(books));
   title.value = '';
   author.value = '';
-}
+});
