@@ -8,15 +8,15 @@
     <title>Awesome Books</title>
 </head>
 <body>
-    <div class="conainer" style="width: 190px; margin: auto;">
+    <div class="conainer" style="width: 190px;">
         <h1>Awesome books</h1>
-        <div id="target" style= "margin-bottom: 20px; border-bottom: 1px solid black; padding: 20px;">
         </div>
+        <ul id="listBook"></ul>
         
         <form id="form-title" onsubmit="addBook(event)">
             <input type="text" id="title" placeholder="Title" name="title"> <br><br>
             <input type="text" id="author" placeholder="Author" name="author"> <br><br>
-            <button type="submit" id="add">Add</button>
+            <button type="submit">Add</button>
         </form>
     </div>
 </body>
