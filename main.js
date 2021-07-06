@@ -1,4 +1,3 @@
-
 let books = [];
 let counter = 0;
 const bookList = document.getElementById('bookList');
@@ -18,6 +17,7 @@ function display({ title, author, id }) {
     books = books.filter((obj) => obj.id !== id);
     bookList.innerHTML = '';
     books.forEach((book) => {
+      // eslint-disable-next-line no-use-before-define
       showBooks(book);
     });
     localStorage.setItem('savedBooks', JSON.stringify(books));
