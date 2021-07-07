@@ -61,14 +61,25 @@ li:nth-child(odd) {
   width: 200px;
 }
 
+h2 {
+  text-align: center;
+}
+
 .btn-add {
- float: right;
- margin-right: 25px;
- padding: 0px 8px; 
+  float: right;
+  padding: 3px 10px;
+  border: 2px solid #000;
+  border-radius: 3px;
 }
 
 .line {
   margin: 0 auto;
-  border: 2px solid black;
+  border: 1px solid black;
   width: 100px;
+}
+
+input {
+  border: 2px solid #000;
+  border-radius: 4px;
+  width: 100%;
 }
