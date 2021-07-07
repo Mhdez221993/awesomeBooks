@@ -54,12 +54,11 @@ class UI {
     const titleP = document.createElement('p');
     const authorP = document.createElement('p');
     const button = document.createElement('button');
-
     isbn.innerHTML = id;
     isbn.className = 'isbn';
-    titleP.innerHTML = title;
+    titleP.innerHTML = `"${title}"  by`;
     authorP.innerHTML = author;
-    button.innerHTML = 'remove';
+    button.innerHTML = 'Remove';
     button.className = 'remove';
     button.addEventListener('click', (event) => {
       this.removeBook(event.target.parentNode.firstChild.innerHTML);
