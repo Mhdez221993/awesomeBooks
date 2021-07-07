@@ -1,8 +1,9 @@
 // eslint-disable-next-line max-classes-per-file
 class Book {
-  constructor(title, author) {
+  constructor(title, author, id) {
     this.title = title;
     this.author = author;
+    this.id = id;
   }
 }
 
@@ -11,6 +12,14 @@ class UI {
     this.savedBook = [];
     this.bookList = document.getElementById('bookList');
     this.parseBook();
+  }
+
+  clearBook() {
+    this.savedBook = [];
+  }
+
+  addId() {
+    return this.savedBook.length;
   }
 
   returnStoreBook() {
@@ -29,8 +38,8 @@ class UI {
     localStorage.setItem('savedBooks', JSON.stringify(this.savedBook));
   }
 
-  removeBook(book) {
-    this.savedBook = this.savedBook.filter((obj) => obj.title !== book);
+  removeBook(id) {
+    this.savedBook = this.savedBook.filter((obj) => obj.id !== Number(id));
     this.bookList.innerHTML = '';
     this.savedBook.forEach((book) => {
       // eslint-disable-next-line no-use-before-define
@@ -39,12 +48,15 @@ class UI {
     localStorage.setItem('savedBooks', JSON.stringify(this.savedBook));
   }
 
-  display({ title, author }) {
+  display({ title, author, id }) {
     const li = document.createElement('li');
+    const isbn = document.createElement('p');
     const titleP = document.createElement('p');
     const authorP = document.createElement('p');
     const button = document.createElement('button');
 
+    isbn.innerHTML = id;
+    isbn.className = 'isbn';
     titleP.innerHTML = title;
     authorP.innerHTML = author;
     button.innerHTML = 'remove';
@@ -53,6 +65,7 @@ class UI {
       this.removeBook(event.target.parentNode.firstChild.innerHTML);
     });
 
+    li.appendChild(isbn);
     li.appendChild(titleP);
     li.appendChild(authorP);
     li.appendChild(button);
@@ -74,7 +87,7 @@ document.getElementById('form-title').addEventListener('submit', (event) => {
   const title = document.getElementById('title');
   const author = document.getElementById('author');
 
-  const book = new Book(title.value, author.value);
+  const book = new Book(title.value, author.value, ui.addId());
   ui.storeBooks(book);
   ui.displayBooks();
 

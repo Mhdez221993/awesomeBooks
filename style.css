@@ -2,3 +2,7 @@ body {
   width: 200px;
   margin: 0 auto;
 }
+
+.isbn {
+  display: none;
+}
