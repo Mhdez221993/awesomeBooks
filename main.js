@@ -29,6 +29,16 @@ class UI {
     localStorage.setItem('savedBooks', JSON.stringify(this.savedBook));
   }
 
+  removeBook(book) {
+    this.savedBook = this.savedBook.filter((obj) => obj.title !== book);
+    this.bookList.innerHTML = '';
+    this.savedBook.forEach((book) => {
+      // eslint-disable-next-line no-use-before-define
+      this.displayBooks(book);
+    });
+    localStorage.setItem('savedBooks', JSON.stringify(this.savedBook));
+  }
+
   display({ title, author }) {
     const li = document.createElement('li');
     const titleP = document.createElement('p');
@@ -40,14 +50,7 @@ class UI {
     button.innerHTML = 'remove';
     button.className = 'remove';
     button.addEventListener('click', (event) => {
-      const nodeToRemove = event.target.parentNode.firstChild.innerHTML;
-      this.savedBook = this.savedBook.filter((obj) => obj.title !== nodeToRemove);
-      this.bookList.innerHTML = '';
-      this.savedBook.forEach((book) => {
-        // eslint-disable-next-line no-use-before-define
-        this.displayBooks(book);
-      });
-      localStorage.setItem('savedBooks', JSON.stringify(this.savedBook));
+      this.removeBook(event.target.parentNode.firstChild.innerHTML);
     });
 
     li.appendChild(titleP);
