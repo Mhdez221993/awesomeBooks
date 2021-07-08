@@ -9,7 +9,7 @@ class Book {
 
 class UI {
   constructor() {
-    this.savedBook = [];
+    this.savedBook = localStorage.getItem('savedBooks') || [];
     this.bookList = document.getElementById('bookList');
     this.parseBook();
   }
@@ -27,7 +27,7 @@ class UI {
   }
 
   parseBook() {
-    if (this.savedBook.length >= 0) {
+    if (this.savedBook.length > 0) {
       this.savedBook = JSON.parse(localStorage.getItem('savedBooks'));
       this.displayBooks();
     }
