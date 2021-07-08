@@ -1,3 +1,4 @@
+/* global luxon */
 // eslint-disable-next-line max-classes-per-file
 class Book {
   constructor(title, author, id) {
@@ -131,3 +132,6 @@ const link = document.querySelectorAll('.nav-link');
 link.forEach((el) => el.addEventListener('click', (event) => {
   hideOrDisplay(event.target.innerHTML);
 }));
+
+const date = luxon.DateTime.now().toFormat('FF');
+document.getElementsByClassName('date')[0].innerHTML = date;
