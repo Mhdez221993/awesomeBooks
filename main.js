@@ -1,3 +1,4 @@
+/* global luxon */
 // eslint-disable-next-line max-classes-per-file
 class Book {
   constructor(title, author, id) {
@@ -9,7 +10,7 @@ class Book {
 
 class UI {
   constructor() {
-    this.savedBook = [];
+    this.savedBook = localStorage.getItem('savedBooks') || [];
     this.bookList = document.getElementById('bookList');
     this.parseBook();
   }
@@ -27,7 +28,7 @@ class UI {
   }
 
   parseBook() {
-    if (this.savedBook.length >= 0) {
+    if (this.savedBook.length > 0) {
       this.savedBook = JSON.parse(localStorage.getItem('savedBooks'));
       this.displayBooks();
     }
@@ -94,3 +95,43 @@ document.getElementById('form-title').addEventListener('submit', (event) => {
   title.value = '';
   author.value = '';
 });
+
+function hideOrDisplay(target) {
+  const addBook = document.getElementById('add-book');
+  const allBook = document.getElementById('all-books');
+  const contactBook = document.getElementById('contact');
+  switch (target) {
+    case 'List':
+      allBook.style.display = 'block';
+      addBook.style.display = 'none';
+      contactBook.style.display = 'none';
+      break;
+    case 'Add new':
+      allBook.style.display = 'none';
+      addBook.style.display = 'block';
+      contactBook.style.display = 'none';
+      break;
+    case 'Contact':
+      allBook.style.display = 'none';
+      addBook.style.display = 'none';
+      contactBook.style.display = 'block';
+      break;
+    case 'Awesome Boooks':
+      allBook.style.display = 'block';
+      addBook.style.display = 'none';
+      contactBook.style.display = 'none';
+      break;
+    default:
+      addBook.style.display = 'none';
+      contactBook.style.display = 'none';
+  }
+}
+
+const link = document.querySelectorAll('.nav-link');
+
+link.forEach((el) => el.addEventListener('click', (event) => {
+  hideOrDisplay(event.target.innerHTML);
+}));
+
+const date = luxon.DateTime.now().toFormat('FF');
+document.getElementsByClassName('date')[0].innerHTML = date;
