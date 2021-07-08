@@ -5,7 +5,6 @@ body {
 }
 
 body {
-  width: 400px;
   margin: 0 auto;
 }
 
@@ -21,8 +20,9 @@ body {
 #bookList {
   border: 2px solid #000;
   padding: 0;
-  margin: 0;
+  margin: auto;
   margin-bottom: 50px;
+  width: 600px;
 }
 
 ul,
@@ -42,6 +42,11 @@ li:nth-child(odd) {
   background-color: rgb(223, 222, 222);
 }
 
+.contact > ul > li,
+li.nav-item {
+  background-color: white;
+}
+
 #bookList > li {
   display: flex;
   flex-flow: row wrap;
@@ -58,7 +63,7 @@ li:nth-child(odd) {
 
 #form-title {
   margin: 0 auto;
-  width: 200px;
+  width: 300px;
 }
 
 h2 {
@@ -72,14 +77,18 @@ h2 {
   border-radius: 3px;
 }
 
-.line {
-  margin: 0 auto;
-  border: 1px solid black;
-  width: 100px;
-}
-
 input {
   border: 2px solid #000;
   border-radius: 4px;
   width: 100%;
+}
+
+.contact {
+  width: 500px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.section {
+  display: none;
 }
