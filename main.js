@@ -27,7 +27,7 @@ class UI {
   }
 
   parseBook() {
-    if (this.savedBook) {
+    if (this.savedBook.length) {
       this.savedBook = JSON.parse(localStorage.getItem('savedBooks'));
       this.displayBooks();
     }
